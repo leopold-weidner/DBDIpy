@@ -7,14 +7,14 @@ DBDIpy is an open-source Python library, to ...
 
  | Tables         | Are                    |
 |:-------------   |:-----------------------|
-| `test`          | right-aligned          |
+| `test`          | [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)          |
 | `test2`         | centered               |
 
 
 
 
 
-[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 

@@ -1,4 +1,4 @@
-DBDIpy (Version 0.1.0)
+# DBDIpy (Version 0.1.0)
 **********************************
 
 DBDIpy is an open-source Python library, to ...
@@ -51,3 +51,8 @@ Tutorial
 Integration into the matchms ecosystem
 ============
 ...further text ...
+
+
+Contact
+============
+leopold.weidner@tum.de

@@ -5,10 +5,10 @@ DBDIpy is an open-source Python library, to ...
 
 
 
- | Tables        | Are         |
-|:------------- |:-------------|
-| test          | right-aligned |
-| test2         | centered      |
+ | Tables         | Are                    |
+|:-------------   |:-----------------------|
+| `test`          | right-aligned          |
+| `test2`         | centered               |
 
 
 

@@ -5,7 +5,7 @@ DBDIpy is an open-source Python library, to ...
 
 
 
- | Tables         | Are                    |
+|                 | Badges                 |
 |:-------------   |:-----------------------|
 | `test`          | [![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)          |
 | `test2`         | centered               |

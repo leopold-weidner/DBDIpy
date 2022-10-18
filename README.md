@@ -6,9 +6,11 @@ DBDIpy is an open-source Python library, to ...
 
 .. list-table::
    :widths: 25 25
+   :header-rows: 1
 
    * - 
      - Badges
+   * - **fair-software.nl recommendations**
      - 
    * - \1. Code repository
      - |GitHub Badge|

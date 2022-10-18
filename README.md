@@ -25,10 +25,31 @@ DBDIpy is an open-source Python library, to ...
 
 
 **********************************
-Latest changes (matchms >= 0.14.0)
+Documentation for users
 **********************************
 
-Metadata class
-==============
+Installation
+============
 
-This is the first of a few releases to work our way towards matchms 1.0.0, which also means that a few things in the API will likely change. Here the main change is that `Spectrum.metadat
+Prerequisites:  
+
+- Anaconda (recommended)
+- Python 3.7, 3.8 or 3.9
+
+DBDIpy can be instaled from PyPI  with
+
+.. code-block:: console
+
+  # we recomend installing DBDI in a new virtual environment
+  conda create --name DBDIpy python=3.8
+  conda activate DBDIpy
+  pip install DBDIpy
+
+Tutorial
+============
+...further text ...
+
+
+Integration into the matchms ecosystem
+============
+...further text ...

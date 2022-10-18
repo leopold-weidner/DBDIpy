@@ -24,10 +24,6 @@ DBDIpy is an open-source Python library, to ...
 [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
 
 
-**********************************
-Documentation for users
-**********************************
-
 Installation
 ============
 
@@ -38,12 +34,14 @@ Prerequisites:
 
 DBDIpy can be instaled from PyPI  with
 
-.. code-block:: console
+```python
+# we recomend installing DBDI in a new virtual environment
+conda create --name DBDIpy python=3.8
+conda activate DBDIpy
+pip install DBDIpy
+```
 
-  # we recomend installing DBDI in a new virtual environment
-  conda create --name DBDIpy python=3.8
-  conda activate DBDIpy
-  pip install DBDIpy
+  
 
 Tutorial
 ============

@@ -5,9 +5,11 @@ DBDIpy is an open-source Python library, to ...
 
 
 
- | Badges |
---- | --- |
-`test` | test |
+ | Tables        | Are         |
+|:------------- |:-------------|
+| test          | right-aligned |
+| test2         | centered      |
+
 
 
 

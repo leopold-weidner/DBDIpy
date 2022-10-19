@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: dbdiLW
+Version: 0.0.5.1
+Summary: A python package for the curation and interpretation of dielectric barrier discharge ionisation mass spectrometric datasets.
+Home-page: http://pypi.python.org/pypi/PackageName/
+Author: Leopold Weidner
+Author-email: leopold.weidner@tum.de
+License: docs/license.txt
+Keywords: python,first package
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+

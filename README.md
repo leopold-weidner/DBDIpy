@@ -35,7 +35,8 @@ conda activate DBDIpy
 pip install DBDIpy
 ```
 
-  
+Known installation issues:
+...  
 
 Tutorial
 ============

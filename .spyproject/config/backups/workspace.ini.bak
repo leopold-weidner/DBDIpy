@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['../../../Desktop/test_test.py']
+recent_files = ['..\\..\\..\\Desktop\\DBDIpy_testruns.py', '..\\..\\..\\Desktop\\test_test.py', 'DBDIpy\\tests\\test_plot_adducts.py']
 
 [main]
 version = 0.2.0

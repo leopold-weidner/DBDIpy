@@ -63,9 +63,7 @@ def plot_adducts(IDs, df, metadata = None, transform = False):
         else:
             newcols = pd.DataFrame({"mf": metadata.loc[IDs, "mol_formula"],
                                     "corr": quickcorr})
-            dfp.columns = newcols[['mf', 'corr']].T.agg(' '.join)
-
-    
+            dfp.columns = newcols[['mf', 'corr']].T.agg(' '.join)    
     
     if transform == True:
         dfp = np.log2(dfp)
@@ -83,7 +81,7 @@ def plot_adducts(IDs, df, metadata = None, transform = False):
         plt.show()
         return fig
     
-
+    
     fig =  plt.figure() 
     dfp.plot()
     plt.title(f"correlation of temporal feature evolution {*IDs,}" )

@@ -2,7 +2,7 @@ README.md
 setup.py
 DBDIpy/__init__.py
 DBDIpy/align_spectra.py
-DBDIpy/export_to_spectra_module.py
+DBDIpy/export_to_spectra.py
 DBDIpy/identify_adducts.py
 DBDIpy/impute_intensities.py
 DBDIpy/plot_adducts.py
@@ -12,7 +12,6 @@ DBDIpy.egg-info/SOURCES.txt
 DBDIpy.egg-info/dependency_links.txt
 DBDIpy.egg-info/requires.txt
 DBDIpy.egg-info/top_level.txt
-DBDIpy/tests/__init__.py
 DBDIpy/tests/testLW.py
 DBDIpy/tests/test_align_spectra.py
 DBDIpy/tests/test_export_to_spectra.py

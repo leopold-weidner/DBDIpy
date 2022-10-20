@@ -20,7 +20,6 @@ def export_to_spectra(df, mzcol = 0):
     
     import matchms
     
-    
     df.rename(columns = {df.columns[mzcol]: 'mean'}, inplace = True)
     
     df = df.sort_values('mean')

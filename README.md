@@ -1,7 +1,7 @@
 # DBDIpy (Version 0.7.0)
 **********************************
 
-DBDIpy is an open-source Python library, to ...
+DBDIpy is an open-source Python library,for the curation and interpretation of dielectric barrier discharge ionisation mass spectrometric datasets.
 
 
 
@@ -18,15 +18,22 @@ DBDIpy is an open-source Python library, to ...
 | `Further Reads`     | [![Researchgate](https://img.shields.io/badge/Research_Gate-00CCBB.svg?&style=for-the-badge&logo=ResearchGate&logoColor=white)](https://www.researchgate.net/profile/Leopold-Weidner)|
 
 
-Latest Changes
+Latest Changes (since 0.6.0)
+------------
+- updated description.
+- improved help pages.
+- began writing tutorial.
+
+
+User guide
 ============
 
-Latest Changes
+Introduction
 ------------
-
+...
 
 Installation
-============
+------------
 
 Prerequisites:  
 
@@ -37,13 +44,14 @@ DBDIpy can be instaled from PyPI  with
 
 ```python
 # we recomend installing DBDI in a new virtual environment
-conda create --name DBDIpy python=3.8
+conda create --name DBDIpy python=3.9
 conda activate DBDIpy
 python3 -m pip install DBDIpy
 ```
 
-
 Known installation issues:
+Apple M1 chip users might encounter issus with automatic installation of matchms. 
+Manual installation of the dependency as described on the libraries `official site <https://github.com/matchms/matchms>`_  helps solving the issue. 
 ...  
   
 

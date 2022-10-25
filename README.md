@@ -22,7 +22,7 @@ DBDIpy is an open-source Python library,for the curation and interpretation of d
 | `Further Reads`     | [![Researchgate](https://img.shields.io/badge/Research_Gate-00CCBB.svg?&style=for-the-badge&logo=ResearchGate&logoColor=white)](https://www.researchgate.net/profile/Leopold-Weidner)|
 
 
-##Latest Changes (since 0.6.0)
+Latest Changes (since 0.6.0)
 ------------
 - updated description.
 - improved help pages.
@@ -32,7 +32,7 @@ DBDIpy is an open-source Python library,for the curation and interpretation of d
 User guide
 ============
 
-##Installation
+## Installation
 ------------
 
 Prerequisites:  
@@ -57,7 +57,7 @@ Introduction
 ------------
 ...further text ...
 
-##Tutorial
+## Tutorial
 ------------
 ...further text ...
 

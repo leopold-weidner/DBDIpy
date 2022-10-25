@@ -30,7 +30,7 @@ User guide
 
 Introduction
 ------------
-...
+...further text ...
 
 Installation
 ------------
@@ -51,18 +51,14 @@ python3 -m pip install DBDIpy
 
 Known installation issues:
 Apple M1 chip users might encounter issus with automatic installation of matchms. 
-Manual installation of the dependency as described on the libraries `official site <https://github.com/matchms/matchms>`_  helps solving the issue. 
-...  
+Manual installation of the dependency as described on the libraries [official site](https://github.com/matchms/matchms) helps solving the issue. 
+  
   
 
 Tutorial
-============
+------------
 ...further text ...
 
-
-Integration into the matchms ecosystem
-============
-...further text ...
 
 
 Contact

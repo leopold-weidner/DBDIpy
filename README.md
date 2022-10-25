@@ -6,8 +6,8 @@ DBDIpy is an open-source Python library,for the curation and interpretation of d
 1. [Installation](#installation)
 2. [User Tutorial](#tutorial)
 
-Introduction
-------------
+# Introduction
+
 ...further text ...
 
 

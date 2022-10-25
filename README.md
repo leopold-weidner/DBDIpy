@@ -44,7 +44,7 @@ Prerequisites:
 DBDIpy can be instaled from PyPI  with
 
 ```python
-# we recomend installing DBDI in a new virtual environment
+# we recomend installing DBDIpy in a new virtual environment
 conda create --name DBDIpy python=3.9
 conda activate DBDIpy
 python3 -m pip install DBDIpy

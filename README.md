@@ -94,8 +94,16 @@ spectrums = list(load_from_mgf(demo_mgf))
 specs_aligned = dbdi.align_spectra(spectrums, ppm_window = 2) 
 ```
 We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. By aplication of ``align_spectra`` we transformed these to a two-dimensional ``pandas.DataFrame``. Now you have a column for each mass spectrometric scan and features are aligned to rows. The first column shows the mean *m/z* for a feature.
+If a signal was not detected in a scan, the according field will be set to an instance of ``np.nan``.
 
 You can set the ``ppm_window`` parameter according to the resolution of you mass spectrometric system. 
+
+We now can inspect the data, eg. by running: .isnull().values.any()
+
+```python
+import pandas as pd
+specs_aligned.describe()
+```
 
 Contact
 ============

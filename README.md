@@ -12,10 +12,10 @@ Mass spectrometric data from direct injection analysis is hard to interprete as 
 
 Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from dielectric barrier dischardge ionization (DBDI). DBDI is a relatively young technology which is rapidly gaining popularity in applications as breath analysis, process controll or food research. 
 
-DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+<sub>n</sub>O+H]<sup>+</sup>). 
+DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+O<sub>n</sub>+H]<sup>+</sup>). 
 Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
 - calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
-- (exact) mass differences are used to define the nature of potential candidates. 
+- (exact) mass differences are used to refine the nature of potential candidates. 
 
 These putative identifications can than further be validated by the user, eg. based on tandem MS fragment data.               
 
@@ -72,7 +72,7 @@ Manual installation of the dependency as described on the libraries [official si
 
 ## Tutorial
 
-The following tutorial showcases an ordinary data analysis workflow by going through all functions of DBDIpy with the supplied demo dataset which is publicly available [here](https://doi.org/10.5281/zenodo.7221089).
+The following tutorial showcases an ordinary data analysis workflow by going through all functions of DBDIpy from loading data until visualization of correlation results. Therefore, we supplied a demo dataset which is publicly available [here](https://doi.org/10.5281/zenodo.7221089).
 
 The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
 
@@ -113,7 +113,7 @@ specs_aligned.info()
 
 Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there are missing values in the data. These cannot be handled by successive DBDIpy functions and most machine learning algorithms so we need to impute them.
 
-### 2. Imputing missing values
+### 2. Imputation of missing values
 
 ``impute_intensities`` will assure that after imputation we will have a set of uniform length extracted ion chromatograms (XIC) in our DataFrame. This is an important prerequisite for pointwise correlation calculation and for many tools handling time series data.  
 
@@ -121,6 +121,7 @@ Missing values in our feature table will be imputed by a two-stage imputation al
 - First, missing values within the detected signal region are interpolated in between.
 - Second, a noisy baseline is generated for all XIC to be of uniform length which the length of the longest XIC in the dataset.
 
+The function lets the user decide which imputation method to use. Default mode is ``linear``, however several others are available. 
 
 ```python
 masses = specs_aligned["mean"]
@@ -128,11 +129,18 @@ specs_aligned = specs_aligned.drop("mean", axis = 1)
 
 specs_imputed = dbdi.impute_intensities(specs_aligned, method = "linear")
 ```
+
 Now ``specs_imputed`` does not contain any missing values anymore and is ready for adduct and in-source fragment detection.
 
 
 ### 3. Detection of adducts and in-source fragments
-...text...
+
+Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces to identify in-source adducts or in-source fragments generated during the DBD ionization process. The identification is performed in a two-step procedure: 
+- First, calculation of pointwise intensity correlation identifies featur groups with matching temporal intensity profiles through the experiment.
+- Second, (exact) mass differences are used to refine the nature of potential candidates. 
+
+By default, ``identify_adducts`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+O<sub>1</sub>+H]<sup>+</sup> and [M+O<sub>2</sub>+H]<sup>+</sup>.
+
 
 
 Contact

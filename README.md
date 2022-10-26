@@ -115,11 +115,12 @@ Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there 
 
 ### 2. Imputing missing values
 
-``impute_intensities`` will assure that after iputation we will have a set of uniform length extracted ion chromatograms (XIC) in our DataFrame. This is an important prerequisite for pointwise correlation calculation and for many tools handling time series data.  
+``impute_intensities`` will assure that after imputation we will have a set of uniform length extracted ion chromatograms (XIC) in our DataFrame. This is an important prerequisite for pointwise correlation calculation and for many tools handling time series data.  
 
 Missing values in our feature table will be imputed by a two-stage imputation algorithm. 
 - First, missing values within the detected signal region are interpolated in between.
 - Second, a noisy baseline is generated for all XIC to be of uniform length which the length of the longest XIC in the dataset.
+
 
 ```python
 masses = specs_aligned["mean"]
@@ -127,7 +128,6 @@ specs_aligned = specs_aligned.drop("mean", axis = 1)
 
 specs_imputed = dbdi.impute_intensities(specs_aligned, method = "linear")
 ```
-
 Now ``specs_imputed`` does not contain any missing values anymore and is ready for adduct and in-source fragment detection.
 
 

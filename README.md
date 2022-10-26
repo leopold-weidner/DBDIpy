@@ -233,18 +233,14 @@ annotation_metadata = feather.read_dataframe(demo_meta)
 dbdi.plot_adducts(IDs = [55,66,83,99], df = specs_imputed, metadata = annotation_metadata, transform = True)
 ```
 
-![Figure 2022-10-26 160441](https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.png)
-
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.png">
+  <img width="432" height="288" src="https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.png">
 </p>
-
-
-
 <p align = "center">
-Fig.2 - ...
+Fig.2 - XIC plots for features 55, 66, 83 and 99 which have highly correlated intensity profile through the baking experiment.
 </p>
 
+We see that the XIC traces show a similar intensity profile through the experiment. 
 
 Contact
 ============

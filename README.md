@@ -78,6 +78,9 @@ The demo data is from an experiments where wheat bread was roasted for 20 min an
 
 
 ![bitmap](https://user-images.githubusercontent.com/81673643/198019906-3138d802-4c0d-4c34-90f8-b7d79b07dbd6.png)
+<p align = "center">
+Fig.1 - 4K Mountains Wallpaper
+</p>
 
 ### 1. Importing MS data
 DBDIpy core functions utilize 2D tabular data. Raw mass spectra containing *m/z*-intensity-pairs first will need to be aligned to a DataFrame of features. We build features by using the ``align_spectra()`` function. ``align_spectra()`` is the interface to load data from open file formats such as .mgf, .mzML or .mzXML files via ``matchms.importing``.

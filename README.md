@@ -76,7 +76,7 @@ The following tutorial showcases an ordinary data analysis workflow by going thr
 
 The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
 
-![bitmap](https://user-images.githubusercontent.com/81673643/198021163-2609d41f-758b-4593-b6f7-d91fbae3d91c.png)
+![bitmap](https://user-images.githubusercontent.com/81673643/198022057-8b5da4b9-f6bd-43b7-9b6c-32fd119f93a7.png)
 <p align = "center">
 Fig.1 - Schematic DBDIpy workflow for in-source adduct and fragment detection: imported MS1 data are aligned, imputed and parsed to combined correlation and mass difference analysis.
 </p>

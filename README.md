@@ -237,7 +237,7 @@ dbdi.plot_adducts(IDs = [55,66,83,99], df = specs_imputed, metadata = annotation
 </p>
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.pn">
+  <img width="432" height="288" src="https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.pn">
 </p>
 
 

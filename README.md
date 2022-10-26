@@ -72,11 +72,12 @@ Manual installation of the dependency as described on the libraries [official si
 
 ## Tutorial
 
-![bitmap](https://user-images.githubusercontent.com/81673643/198017887-292775cb-3c1b-44ef-af52-60aeed7b0203.png)
-
 The following tutorial showcases an ordinary data analysis workflow by going through all functions of DBDIpy with the supplied demo dataset which is publicly available [here](https://doi.org/10.5281/zenodo.7221089).
 
 The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
+
+
+![bitmap](https://user-images.githubusercontent.com/81673643/198019906-3138d802-4c0d-4c34-90f8-b7d79b07dbd6.png)
 
 ### 1. Importing MS data
 DBDIpy core functions utilize 2D tabular data. Raw mass spectra containing *m/z*-intensity-pairs first will need to be aligned to a DataFrame of features. We build features by using the ``align_spectra()`` function. ``align_spectra()`` is the interface to load data from open file formats such as .mgf, .mzML or .mzXML files via ``matchms.importing``.
@@ -118,4 +119,3 @@ Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there 
 Contact
 ============
 leopold.weidner@tum.de
-![bitmap](https://user-images.githubusercontent.com/81673643/198017887-292775cb-3c1b-44ef-af52-60aeed7b0203.png)

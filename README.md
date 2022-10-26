@@ -232,14 +232,12 @@ annotation_metadata = feather.read_dataframe(demo_meta)
 ##plot the XIC
 dbdi.plot_adducts(IDs = [55,66,83,99], df = specs_imputed, metadata = annotation_metadata, transform = True)
 ```
-<p align = "center">
+
 ![Figure 2022-10-26 160441](https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.png)
-</p>
 
 <p align="center">
-  <img width="432" height="288" src="https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.pn">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.png">
 </p>
-
 
 
 

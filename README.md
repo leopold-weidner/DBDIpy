@@ -140,7 +140,6 @@ specs_imputed.isnull().values.any()
 Out[]: False
 ```
 
-specs_aligned.isnull().values.any
 
 ### 3. Detection of adducts and in-source fragments
 
@@ -158,8 +157,44 @@ adduct_rule = pd.DataFrame({'deltamz': [47.984744],'motive': ["O3"]})
 
 ##identify in-source fragments and adducts
 search_res = dbdi.identify_adducts(df = specs_imputed, masses = feature_mz, custom_adducts = adduct_rule,
-                         method = "spearman", threshold = 0.9, mass_error = 2)
+                                   method = "spearman", threshold = 0.9, mass_error = 2)
 ```
+
+The function will return a dictionary containing a dataframe for each adduct type that was defined.
+
+```python
+search_res
+Out[24]: 
+{'O':   base_mz    base_index  match_mz  match_index    mzdiff      corr
+ 19     215.11789          24  231.11280        ID40  15.99491  0.963228
+ 310    224.10699          33  240.10191        ID51  15.99492  0.939139
+ 605    231.11280          39  215.11789        ID25  15.99491  0.963228
+ 1413   240.10191          50  224.10699        ID34  15.99492  0.939139
+ 1668   244.13321          55  260.12812        ID67  15.99491  0.976541,
+                                 ...
+ 'O2':  base_mz    base_index  match_mz  match_index    mzdiff      corr
+ 1437   240.10191          50  272.09174        ID77  31.98983  0.988866
+ 1677   244.13321          55  276.12304        ID84  31.98983  0.972251
+ 2362   260.12812          66  292.11795       ID100  31.98983  0.964096
+ 3024   272.09174          76  240.10191        ID51  31.98983  0.988866
+ 3354   276.12304          83  244.13321        ID56  31.98983  0.972251,
+                                 ...
+ 'H2O': base_mz    base_index  match_mz  match_index    mzdiff      corr
+ 621    231.11280          39  249.12337        ID60  18.01057  0.933640
+ 1883   249.12337          59  231.11280        ID40  18.01057  0.933640
+ 3263   275.13902          82  293.14958       ID102  18.01056  0.948774
+ 4775   293.14958         101  275.13902        ID83  18.01056  0.948774
+ 5573   300.08665         112  318.09722       ID140  18.01057  0.905907
+                                  ...
+ 'O3':  base_mz    base_index  match_mz  match_index    mzdiff      corr
+ 320    224.10699          33  272.09174        ID77  47.98475  0.924362
+ 1688   244.13321          55  292.11795       ID100  47.98474  0.964896
+ 3013   272.09174          76  224.10699        ID34  47.98475  0.924362
+ 4631   292.11795          99  244.13321        ID56  47.98474  0.964896
+ 13597  438.28502         308  486.26976       ID356  47.98474  0.935359
+                                  ...
+````
+
 Note that ``identify_adducts()`` has a variety of parameters which allow high user cusomization. See the help file of the functions for details.
 
 

@@ -240,7 +240,13 @@ dbdi.plot_adducts(IDs = [55,66,83,99], df = specs_imputed, metadata = annotation
 Fig.2 - XIC plots for features 55, 66, 83 and 99 which have highly correlated intensity profile through the baking experiment.
 </p>
 
-We see that the XIC traces show a similar intensity profile through the experiment. 
+We see that the XIC traces show a similar intensity profile through the experiment. The plot further tells us the correlation coefficients of the identified adducts.
+From the metadata we can see that the detected mass signals are idependently annotated as C<sub>15</sub>H<sub>17</sub>O<sub>2-5</sub>N which tells us that we most probaly found an Oxgen-adduct series. 
+
+If MS2 data was recorded during the experiemnt we now can go further an compare frament spectra to reassure the identification. 
+
+### 4. Exporting tabular MS data to match.Spectra objects
+...text...
 
 Contact
 ============

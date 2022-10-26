@@ -77,13 +77,20 @@ The following tutorial showcases an ordinary data analysis workflow by going thr
 The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
 
 ### 1. Importing MS data
-DBDIpy core functions utilize 2D tabular data. Raw mass spectra from containing *m/z*-intensity-pairs first will need to be aligned to features. We do so by using the ``align_spectra()`` function to so. ``align_spectra()`` is the interface to load data from open file formats such as .mgf, .mzML or .mzXML files via ``matchms``. 
+DBDIpy core functions utilize 2D tabular data. Raw mass spectra containing *m/z*-intensity-pairs first will need to be aligned to a DataFrame of features. We build features by using the ``align_spectra()`` function. ``align_spectra()`` is the interface to load data from open file formats such as .mgf, .mzML or .mzXML files via ``matchms.importing``.
+If your data already is formatted accordingly, you can skip this step.
 
 ```python
-# we recomend installing DBDIpy in a new virtual environment
-conda create --name DBDIpy python=3.9
-conda activate DBDIpy
-python3 -m pip install DBDIpy
+# importing the downloaded .mgf files from demo data by matchms
+import os
+import DBDIpy as dbdi
+from matchms.importing import load_from_mgf
+
+demo_path = ""                                               #enter path to demo dataset
+demo_mgf = os.path.join(demo_path, "example_dataset.mgf")
+spectrums = list(load_from_mgf(demo_mgf))
+
+
 ```
 
 

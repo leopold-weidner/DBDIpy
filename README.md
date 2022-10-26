@@ -89,6 +89,7 @@ If your data already is formatted accordingly, you can skip this step.
 ```python
 # importing the downloaded .mgf files from demo data by matchms
 import os
+import pandas as pd
 import DBDIpy as dbdi
 from matchms.importing import load_from_mgf
 
@@ -96,6 +97,7 @@ demo_path = ""                                                #enter path to dem
 demo_mgf = os.path.join(demo_path, "example_dataset.mgf")
 spectrums = list(load_from_mgf(demo_mgf))
 
+##align the listed Spectra
 specs_aligned = dbdi.align_spectra(spectrums, ppm_window = 2) 
 ```
 We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. At this place you can run your personal ``matchms`` preprocessing pipelines or manually apply filters like noise reduction.
@@ -124,9 +126,10 @@ Missing values in our feature table will be imputed by a two-stage imputation al
 The function lets the user decide which imputation method to use. Default mode is ``linear``, however several others are available. 
 
 ```python
-masses = specs_aligned["mean"]
+feature_mz = specs_aligned["mean"]
 specs_aligned = specs_aligned.drop("mean", axis = 1)
 
+##impute the dataset
 specs_imputed = dbdi.impute_intensities(specs_aligned, method = "linear")
 ```
 
@@ -148,6 +151,16 @@ Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces t
 By default, ``identify_adducts()`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+O<sub>1</sub>+H]<sup>+</sup> and [M+O<sub>2</sub>+H]<sup>+</sup>. 
 For demonstrational purposes we also want to search for [M+O<sub>3</sub>+H]<sup>+</sup> in this example.
 
+
+```python
+##prepare a DataFrame to search for O<sub>3</sub>-adducts
+adduct_rule = pd.DataFrame({'deltamz': [47.984744],'motive': ["O3"]})
+
+##identify in-source fragments and adducts
+search_res = dbdi.identify_adducts(df = raw_imp, masses = feature_mz, custom_adducts = adduct_rule,
+                         method = "spearman", threshold = 0.9, mass_error = 5)
+```
+Note that ``identify_adducts()`` has a variety of parameters which allow high user cusomization.
 
 
 Contact

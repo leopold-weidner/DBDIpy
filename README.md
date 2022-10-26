@@ -16,6 +16,7 @@ DBDIpy's core functionality relys on putative identification of in-source fragme
 Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
 - calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
 - (exact) mass differences are used to define the nature of potential candidates. 
+
 These putative identifications can than further be validated by the user, eg. based on tandem MS fragment data.               
 
 DBDIpy further comes along with functions optimized for preprocessing of experimental data and visualization of identified adducts. The library is integrated into the matchms ecosystem to assimilate DBDIpy's functionalities into existing workflows.

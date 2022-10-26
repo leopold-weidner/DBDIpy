@@ -89,12 +89,13 @@ If your data already is formatted accordingly, you can skip this step.
 ```python
 ##loading libraries for the tutorial
 import os
+import feather
 import numpy as np
 import pandas as pd
 import DBDIpy as dbdi
 from matchms.importing import load_from_mgf
 
-# importing the downloaded .mgf files from demo data by matchms
+##importing the downloaded .mgf files from demo data by matchms
 demo_path = ""                                                #enter path to demo dataset
 demo_mgf = os.path.join(demo_path, "example_dataset.mgf")
 spectrums = list(load_from_mgf(demo_mgf))
@@ -152,7 +153,7 @@ Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces t
 
 By default, ``identify_adducts()`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+O<sub>1</sub>+H]<sup>+</sup> and [M+O<sub>2</sub>+H]<sup>+</sup>. 
 For demonstrational purposes we also want to search for [M+O<sub>3</sub>+H]<sup>+</sup> in this example.
-
+Note that ``identify_adducts()`` has a variety of other parameters which allow high user customization. See the help file of the functions for details.
 
 ```python
 ##prepare a DataFrame to search for O3-adducts
@@ -201,7 +202,7 @@ Out[24]:
 The ``base_mz`` and ``base_index`` column give us the index of the features which correlates with a correlation partner specified in ``match_mz`` and ``match_index``.
 The mass difference between both is given for validational purpose and the correlation coefficient between both features is listed. 
 
-Now we can search for example for oxygenation series of a single analyte:
+Now we can for example search for oxygenation series of a single analyte:
 
 ```python
 ##search for oxygenation series
@@ -213,12 +214,29 @@ Out[33]: array([55, 99], dtype=int64)
 ```
 
 This tells us that features 55 and 99 both putatively have [M+O<sub>1-3</sub>+H]<sup>+</sup> adduct ions with correlations of  R<sup>2</sup> > 0.9 in our dataset.
+Let's visualize this finding!
 
-Note that ``identify_adducts()`` has a variety of parameters which allow high user cusomization. See the help file of the functions for details.
 
+### 4. Visualization of correlation results
 
+Now that we putatively identified some related ions of a single analyte, we want to check their temporal response during the baking experiment.
+Therefore, we can use the ``plot_adducts()`` function to conveniently draw XICs.
+The demo dataset even comes along with some annotated metadata for our features, so we can decorate the plot and check our previous results!
+
+```python
+##load annotation metadta
+demo_path = ""                                                     #enter path to demo dataset
+demo_meta = os.path.join(demo_path, "example_metadata.feather")
+annotation_metadata = feather.read_dataframe(demo_meta)
+
+##plot the XIC
+dbdi.plot_adducts(IDs = [55,66,83,99], df = specs_imputed, metadata = annotation_metadata, transform = True)
+```
+
+![Figure 2022-10-26 160441](https://user-images.githubusercontent.com/81673643/198047792-9a9019ab-5c00-4365-a25c-2cbcd0d3d20f.png)
 
 
 Contact
 ============
 leopold.weidner@tum.de
+

@@ -87,12 +87,14 @@ DBDIpy core functions utilize 2D tabular data. Raw mass spectra containing *m/z*
 If your data already is formatted accordingly, you can skip this step.
 
 ```python
-# importing the downloaded .mgf files from demo data by matchms
+##loading libraries for the tutorial
 import os
+import numpy as np
 import pandas as pd
 import DBDIpy as dbdi
 from matchms.importing import load_from_mgf
 
+# importing the downloaded .mgf files from demo data by matchms
 demo_path = ""                                                #enter path to demo dataset
 demo_mgf = os.path.join(demo_path, "example_dataset.mgf")
 spectrums = list(load_from_mgf(demo_mgf))
@@ -136,6 +138,7 @@ specs_imputed = dbdi.impute_intensities(df = specs_aligned, method = "linear")
 Now ``specs_imputed`` does not contain any missing values anymore and is ready for adduct and in-source fragment detection.
 
 ```python
+##check if NaN are present in DataFrame
 specs_imputed.isnull().values.any()
 Out[]: False
 ```
@@ -160,9 +163,10 @@ search_res = dbdi.identify_adducts(df = specs_imputed, masses = feature_mz, cust
                                    method = "spearman", threshold = 0.9, mass_error = 2)
 ```
 
-The function will return a dictionary containing a dataframe for each adduct type that was defined.
+The function will return a dictionary holding one DataFrame for each adduct type that was defined. A typical output looks the following:
 
 ```python
+##output search results
 search_res
 Out[24]: 
 {'O':   base_mz    base_index  match_mz  match_index    mzdiff      corr
@@ -194,6 +198,21 @@ Out[24]:
  13597  438.28502         308  486.26976       ID356  47.98474  0.935359
                                   ...
 ````
+The ``base_mz`` and ``base_index`` column give us the index of the features which correlates with a correlation partner specified in ``match_mz`` and ``match_index``.
+The mass difference between both is given for validational purpose and the correlation coefficient between both features is listed. 
+
+Now we can search for example for oxygenation series of a single analyte:
+
+```python
+##search for oxygenation series
+two_adducts = np.intersect1d(search_res["O"]["base_index"], np.intersect1d(search_res["O"]["base_index"],search_res["O2"]["base_index"]))
+three_adducts = np.intersect1d(two_adducts , search_res["O3"]["base_index"])
+
+three_adducts
+Out[33]: array([55, 99], dtype=int64)
+```
+
+This tells us that features 55 and 99 both putatively have [M+O<sub>1-3</sub>+H]<sup>+</sup> adduct ions with correlations of  R<sup>2</sup> > 0.9 in our dataset.
 
 Note that ``identify_adducts()`` has a variety of parameters which allow high user cusomization. See the help file of the functions for details.
 

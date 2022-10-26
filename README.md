@@ -10,10 +10,15 @@ DBDIpy is an open-source Python library for the curation and interpretation of d
 
 Mass spectrometric data from direct injection analysis is hard to interprete as missing chromatographic separation complicates identification of fragments and adducts generated during the ionization process.
 
-Here we present an *in-silico* approach to identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from dielectric barrier dischardge ionization (DBDI). DBDI is a relatively young technology which is rapidly gaining popularity in applications as breath analysis, process controll or food research. 
+Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from dielectric barrier dischardge ionization (DBDI). DBDI is a relatively young technology which is rapidly gaining popularity in applications as breath analysis, process controll or food research. 
 
-DBDIpy's core functionality relys on identification of in-source fragments (eg. [M-H<sub>2</sub>O]<sup>+</sup>) and in-source generated adducts (eg. [M+<sub>n</sub>O+H]<sup>+</sup>). Custom adduct species can be defined by the user and passed to this open-search algorithm.   
-Further the library come along with functions for ...
+DBDIpy's core functionality relys on identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+<sub>n</sub>O+H]<sup>+</sup>). Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: - pointwise pearson correlation identifies features with matching temporal intensity profiles through the experiment.
+                - (exact) mass differences are used to define the nature of potential candidates. 
+These putative identifications can than further be validated by the user, eg. based on tandem MS fragment data.               
+
+DBDIpy further comes along with functions optimized for preprocessing of experimental data and visualization of identified adducts. The library is integrated into the matchms ecosystem to assimilate DBDIpy's functionalities into existing workflows.
+
+For details, we invite you to read the [tutorial](#tutorial) or to try out the functions with our [demonstrational dataset]([#tutorial](https://doi.org/10.5281/zenodo.7221089)) or your own data!
 
 
 |                     | Badges                                                                             |

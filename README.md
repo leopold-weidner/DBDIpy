@@ -93,7 +93,9 @@ spectrums = list(load_from_mgf(demo_mgf))
 
 specs_aligned = dbdi.align_spectra(spectrums, ppm_window = 2) 
 ```
-We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. By aplication of ``align_spectra`` we transformed these to a two-dimensional ``pdandas.DataFrame``.  
+We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. By aplication of ``align_spectra`` we transformed these to a two-dimensional ``pdandas.DataFrame``. 
+
+You can set the ``ppm_window`` parameter according to the resolution of you mass spectrometric system. 
 
 Contact
 ============

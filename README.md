@@ -76,7 +76,9 @@ The following tutorial showcases an ordinary data analysis workflow by going thr
 
 The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
 
-1. Importing MS data
+### 1. Importing MS data
+DBDIpy uses 
+
 ``pip``
 
 ```python

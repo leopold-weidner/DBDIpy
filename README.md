@@ -99,7 +99,7 @@ spectrums = list(load_from_mgf(demo_mgf))
 specs_aligned = dbdi.align_spectra(spectrums, ppm_window = 2) 
 ```
 We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. At this place you can run your personal ``matchms`` preprocessing pipelines or manually apply filters like noise reduction.
-By aplication of ``align_spectra``, we transformed the list of spectra objects to a two-dimensional ``pandas.DataFrame``. Now you have a column for each mass spectrometric scan and features are aligned to rows. The first column shows the mean *m/z* of a feature.
+By aplication of ``align_spectra()``, we transformed the list of spectra objects to a two-dimensional ``pandas.DataFrame``. Now you have a column for each mass spectrometric scan and features are aligned to rows. The first column shows the mean *m/z* of a feature.
 If a signal was not detected in a scan, the according field will be set to an instance of ``np.nan``.
 
 Remember to set the ``ppm_window`` parameter according to the resolution of you mass spectrometric system. 
@@ -115,7 +115,7 @@ Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there 
 
 ### 2. Imputation of missing values
 
-``impute_intensities`` will assure that after imputation we will have a set of uniform length extracted ion chromatograms (XIC) in our DataFrame. This is an important prerequisite for pointwise correlation calculation and for many tools handling time series data.  
+``impute_intensities()`` will assure that after imputation we will have a set of uniform length extracted ion chromatograms (XIC) in our DataFrame. This is an important prerequisite for pointwise correlation calculation and for many tools handling time series data.  
 
 Missing values in our feature table will be imputed by a two-stage imputation algorithm. 
 - First, missing values within the detected signal region are interpolated in between.
@@ -132,6 +132,12 @@ specs_imputed = dbdi.impute_intensities(specs_aligned, method = "linear")
 
 Now ``specs_imputed`` does not contain any missing values anymore and is ready for adduct and in-source fragment detection.
 
+```python
+specs_imputed.isnull().values.any()
+Out[]: False
+```
+
+specs_aligned.isnull().values.any
 
 ### 3. Detection of adducts and in-source fragments
 
@@ -139,7 +145,7 @@ Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces t
 - First, calculation of pointwise intensity correlation identifies featur groups with matching temporal intensity profiles through the experiment.
 - Second, (exact) mass differences are used to refine the nature of potential candidates. 
 
-By default, ``identify_adducts`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+O<sub>1</sub>+H]<sup>+</sup> and [M+O<sub>2</sub>+H]<sup>+</sup>. 
+By default, ``identify_adducts()`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+O<sub>1</sub>+H]<sup>+</sup> and [M+O<sub>2</sub>+H]<sup>+</sup>. 
 For demonstrational purposes we also want to search for [M+O<sub>3</sub>+H]<sup>+</sup> in this example.
 
 

@@ -77,9 +77,7 @@ The following tutorial showcases an ordinary data analysis workflow by going thr
 The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
 
 ### 1. Importing MS data
-DBDIpy uses 
-
-``pip``
+DBDIpy core functions utilize 2D tabular data. Raw mass spectra from containing *m/z*-intensity-pairs first will need to be aligned to features. We do so by using the ``align_spectra()`` function to so. ``align_spectra()`` is the interface to load data from open file formats such as .mgf, .mzML or .mzXML files via ``matchms``. 
 
 ```python
 # we recomend installing DBDIpy in a new virtual environment

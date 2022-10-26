@@ -93,17 +93,25 @@ spectrums = list(load_from_mgf(demo_mgf))
 
 specs_aligned = dbdi.align_spectra(spectrums, ppm_window = 2) 
 ```
-We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. By aplication of ``align_spectra`` we transformed these to a two-dimensional ``pandas.DataFrame``. Now you have a column for each mass spectrometric scan and features are aligned to rows. The first column shows the mean *m/z* for a feature.
+We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. At this place you can run your personal ``matchms`` preprocessing pipelines or manually apply filters like noise reduction.
+By aplication of ``align_spectra``, we transformed the list of spectra objects to a two-dimensional ``pandas.DataFrame``. Now you have a column for each mass spectrometric scan and features are aligned to rows. The first column shows the mean *m/z* of a feature.
 If a signal was not detected in a scan, the according field will be set to an instance of ``np.nan``.
 
-You can set the ``ppm_window`` parameter according to the resolution of you mass spectrometric system. 
+Remember to set the ``ppm_window`` parameter according to the resolution of you mass spectrometric system. 
 
-We now can inspect the data, eg. by running: .isnull().values.any()
+We now can inspect the aligned data, eg. by running: 
 
 ```python
-import pandas as pd
 specs_aligned.describe()
+specs_aligned.info()
 ```
+
+Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there are missing values in the data. These cannot be handled by successive DBDIpy functions and most machine learning algorithms so we need to impute them.
+
+### 2. Imputing missing values
+
+...two-stage imputation algo for time-series analysis...
+
 
 Contact
 ============

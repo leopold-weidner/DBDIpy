@@ -79,7 +79,7 @@ The demo data is from an experiments where wheat bread was roasted for 20 min an
 
 ![bitmap](https://user-images.githubusercontent.com/81673643/198019906-3138d802-4c0d-4c34-90f8-b7d79b07dbd6.png)
 <p align = "center">
-Fig.1 - 4K Mountains Wallpaper
+Fig.1 - Schematic DBDIpy workflow for in-source adduct and fragment detection: imported MS1 data are aligned, imputed and parsed to combined correlation and mass difference analysis.
 </p>
 
 ### 1. Importing MS data

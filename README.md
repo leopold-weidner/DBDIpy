@@ -73,8 +73,18 @@ Manual installation of the dependency as described on the libraries [official si
 ## Tutorial
 
 The following tutorial showcases an ordinary data analysis workflow by going through all functions of DBDIpy with the supplied demo dataset which is publicly available [here](https://doi.org/10.5281/zenodo.7221089).
+
 The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
 
+1. Importing MS data
+``pip``
+
+```python
+# we recomend installing DBDIpy in a new virtual environment
+conda create --name DBDIpy python=3.9
+conda activate DBDIpy
+python3 -m pip install DBDIpy
+```
 
 
 Contact

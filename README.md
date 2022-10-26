@@ -41,7 +41,7 @@ Prerequisites:
 - Anaconda (recommended)
 - Python 3.7, 3.8, 3.9 or 3.10
 
-DBDIpy can be instaled from PyPI  with
+DBDIpy can be instaled from PyPI  with:
 
 ```python
 # we recomend installing DBDIpy in a new virtual environment
@@ -50,8 +50,9 @@ conda activate DBDIpy
 python3 -m pip install DBDIpy
 ```
 
+
 Known installation issues:
-Apple M1 chip users might encounter issus with automatic installation of matchms. 
+Apple M1 chip users might encounter issues with automatic installation of matchms. 
 Manual installation of the dependency as described on the libraries [official site](https://github.com/matchms/matchms) helps solving the issue. 
   
 

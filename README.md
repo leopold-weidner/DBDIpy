@@ -14,7 +14,7 @@ Here we present an *in-silico* approach to putatively identify multiple ion spec
 
 DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+<sub>n</sub>O+H]<sup>+</sup>). 
 Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
-- pointwise pearson correlation identifies features with matching temporal intensity profiles through the experiment.
+- calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
 - (exact) mass differences are used to define the nature of potential candidates. 
 These putative identifications can than further be validated by the user, eg. based on tandem MS fragment data.               
 

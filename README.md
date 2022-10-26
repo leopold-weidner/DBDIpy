@@ -98,7 +98,7 @@ demo_mgf = os.path.join(demo_path, "example_dataset.mgf")
 spectrums = list(load_from_mgf(demo_mgf))
 
 ##align the listed Spectra
-specs_aligned = dbdi.align_spectra(spectrums, ppm_window = 2) 
+specs_aligned = dbdi.align_spectra(df = spectrums, ppm_window = 2) 
 ```
 We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. At this place you can run your personal ``matchms`` preprocessing pipelines or manually apply filters like noise reduction.
 By aplication of ``align_spectra()``, we transformed the list of spectra objects to a two-dimensional ``pandas.DataFrame``. Now you have a column for each mass spectrometric scan and features are aligned to rows. The first column shows the mean *m/z* of a feature.
@@ -130,7 +130,7 @@ feature_mz = specs_aligned["mean"]
 specs_aligned = specs_aligned.drop("mean", axis = 1)
 
 ##impute the dataset
-specs_imputed = dbdi.impute_intensities(specs_aligned, method = "linear")
+specs_imputed = dbdi.impute_intensities(df = specs_aligned, method = "linear")
 ```
 
 Now ``specs_imputed`` does not contain any missing values anymore and is ready for adduct and in-source fragment detection.
@@ -153,14 +153,16 @@ For demonstrational purposes we also want to search for [M+O<sub>3</sub>+H]<sup>
 
 
 ```python
-##prepare a DataFrame to search for O<sub>3</sub>-adducts
+##prepare a DataFrame to search for O3-adducts
 adduct_rule = pd.DataFrame({'deltamz': [47.984744],'motive': ["O3"]})
 
 ##identify in-source fragments and adducts
-search_res = dbdi.identify_adducts(df = raw_imp, masses = feature_mz, custom_adducts = adduct_rule,
-                         method = "spearman", threshold = 0.9, mass_error = 5)
+search_res = dbdi.identify_adducts(df = specs_imputed, masses = feature_mz, custom_adducts = adduct_rule,
+                         method = "spearman", threshold = 0.9, mass_error = 2)
 ```
-Note that ``identify_adducts()`` has a variety of parameters which allow high user cusomization.
+Note that ``identify_adducts()`` has a variety of parameters which allow high user cusomization. See the help file of the functions for details.
+
+
 
 
 Contact

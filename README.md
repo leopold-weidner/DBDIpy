@@ -54,7 +54,8 @@ Prerequisites:
 - Anaconda (recommended)
 - Python 3.7, 3.8, 3.9 or 3.10
 
-DBDIpy can be instaled from PyPI  with:
+DBDIpy can be installed from PyPI 
+with:
 
 ```python
 # we recomend installing DBDIpy in a new virtual environment
@@ -71,7 +72,7 @@ Manual installation of the dependency as described on the libraries [official si
 
 ## Tutorial
 
-...further text ...
+The following tutorial works through all functions of DBDIpy with the supplied demo dataset which is publicly available [here](https://doi.org/10.5281/zenodo.7221089).
 
 
 

@@ -26,6 +26,7 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 |                     | Badges                                                                             |
 |:-------------       |:-----------------------------------------------------------------------------------|
 | `License`           | [![PyPi license](https://badgen.net/pypi/license/pip/)]([https://pypi.com/project/pip/](https://opensource.org/licenses/MIT/))|
+| `PyPI`              | [![PyPi license](https://img.shields.io/pypi/v/DBDIpy)](https://pypi.org/project/DBDIpy/)|
 | `Status`            | [![test](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/leopold-weidner/DBDIpy/graphs/commit-activity)|
 | `Updated`           | ![latest commit](https://img.shields.io/github/last-commit/leopold-weidner/DBDIpy)|
 | `Language`          | [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)|

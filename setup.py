@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
    name = 'DBDIpy',
-   version = '0.6.0',
+   version = '0.8.1',
    author = 'Leopold Weidner',
    author_email = 'leopold.weidner@tum.de',
    packages = ['DBDIpy', 'DBDIpy.tests'],
@@ -17,10 +17,10 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Operating System :: OS Independent"
     ],
    install_requires=[
@@ -30,5 +30,7 @@ setup(
        "matchms",
        "matplotlib",
        "pytest",
+       "scipy",
+       "feather",
    ],
 )

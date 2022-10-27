@@ -15,7 +15,6 @@ def test_input_format_mz():
     with pytest.raises(IndexError):
         aligned_spectra = pd.DataFrame(np.random.randint(40, 999, size = (100, 100)))
         dbdi.export_to_spectra(aligned_spectra, mzcol = "X")    
-
    
 #%% test output of function   
 def test_export_outputn():

@@ -31,6 +31,6 @@ setup(
        "matplotlib",
        "pytest",
        "scipy",
-       "feather",
+       "feather-format",
    ],
 )

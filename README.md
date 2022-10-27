@@ -94,6 +94,7 @@ import numpy as np
 import pandas as pd
 import DBDIpy as dbdi
 from matchms.importing import load_from_mgf
+from matchms.exporting import save_as_mgf
 
 ##importing the downloaded .mgf files from demo data by matchms
 demo_path = ""                                                #enter path to demo dataset
@@ -164,7 +165,7 @@ search_res = dbdi.identify_adducts(df = specs_imputed, masses = feature_mz, cust
                                    method = "spearman", threshold = 0.9, mass_error = 2)
 ```
 
-The function will return a dictionary holding one DataFrame for each adduct type that was defined. A typical output looks the following:
+The function will return a dictionary holding one DataFrame for each adduct type that was defined. A typical output looks like the following:
 
 ```python
 ##output search results
@@ -246,7 +247,23 @@ From the metadata we can see that the detected mass signals are idependently ann
 If MS2 data was recorded during the experiemnt we now can go further an compare frament spectra to reassure the identification. 
 
 ### 5. Exporting tabular MS data to match.Spectra objects
-...text...
+
+If you want to export your (imputed) tabular data to ``matchms.Spectra`` objects, you can do so by calling the ``export_to_spectra()`` function. We just need to re-add a column containing *m/z* values of the features.
+This gives you acces to the matchms suite and enables you to safe your mass spectrometric data to open file formats.
+Hint: you can manually add some metadata after construction of the list of spectra.  
+
+```python
+##export tabular MS data back to list of spectrums.
+specs_imputed["mean"] = feature_mz
+
+speclist = dbdi.export_to_spectra(df = specs_imputed, mzcol = 88)
+
+##write processed data to .mgf file
+save_as_mgf(speclist, "DBDIpy_processed_spectra.mgf")
+```
+
+We hope you liked this quick introduction into DBDIpy and will find its functions helpfull and inspiring on your way to wotk through data from direct iinfusion mass spectrometry. Of course, the functions are applicable to all sort of ionisation mechanismns and you can modify the set of adducts to search in accordance to your source. 
+If you have open questions left about functions, their parameter or the algorithmns we invite you to read through the built-in help files. If this does not clarify the issues, please do not hesitate to get in touch with us!
 
 Contact
 ============

@@ -1,20 +1,30 @@
 def export_to_spectra(df, mzcol = 0):
     
-    """
-    Splits a two-dimensional pd.DataFrames containing tabular, aligned mass spectrometric features 
+    """Builds a list of spectra from tabular data.
+    Splits a two-dimensional pd.DataFrames containing aligned mass spectrometric features 
     to a list of matchms.Spectrum objects for further processing or exporting to .mgf-files.
     
     Parameters
     ----------    
-    df: A pd.DataFrames containing tabular mass spectrometric data. The first column (by default) contains mass to charge ratios,
-        successive columns contain corresponting signal intensities of each mass spectrometric scan.
+    df : pd.DataFrame
+         A DataFrame containing tabular mass spectrometric data. 
+         The first column (by default) contains mass to charge ratios,
+         successive columns contain corresponting signal intensities 
+         of each mass spectrometric scan.
         
-    mzcol: Position of the column containing m/z values. 
-    
+    mzcol : int, optional
+            Position of the column containing m/z information of the features.
+            Default is 0.
     
     Returns
     -------
-    A a list of matchms.Spectrum objects for each mass spectrometric scan.
+    A a list containing a matchms.Spectrum object for each column of the input
+    DataFrame except for the m/z column.
+    
+    See Also
+    --------
+    matchms.exporting : For information about writing mass spectrometric data
+    to open file formats.
     
     """
     

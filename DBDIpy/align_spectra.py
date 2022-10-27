@@ -1,18 +1,28 @@
-def align_spectra(spec, ppm_window = 0.2):
+def align_spectra(spec, ppm_window = 2):
     
-    """
-    Aligns a list of matchms.Spectra objects into two-dimensional tabular data containing m/z features.
+    """Feature building from a list of spectra.
+    Aligns detected peaks in a list of matchms.Spectra objects into two-dimensional tabular data.
     Utilizes data loaded by matchms.importing module and connects to matchMS (pre-)processing workflows.
     
     Parameters
     ----------    
-    spec: Spectra imported by matchMS from mass spectrometric experiments (MS1) of instance matchms.Spectrum.
+    spec : list of matchms.Spectra
+           Spectra imported by matchms from mass spectrometric experiments 
+           (MS1) of instance matchms.Spectrum.
     
-    ppm_window: Window for mass alignment in ppm. Default is 0.2.
+    ppm_window : float, optional
+                 Window for mass alignment in ppm. Default is 2 ppm.
     
     Returns
     -------
     A two-dimensional pd.DataFrames containing aligned mass spectrometric features.
+    The first column contains mean m/z values of peaks across all scans followed by 
+    column-wise arranged signal intensities.
+    Absence of a signal in a scan results in filling the table with nan instead.
+    
+    See Also
+    --------
+    matchms.importing : For information about reading mass spectrometric data into Python.
     
     """
     
@@ -77,5 +87,7 @@ def align_spectra(spec, ppm_window = 0.2):
 
     aldf = aldf.reset_index(drop = True)
     aldf.index = ["ID" + s for s in [str(x) for x in list(range(1, aldf.shape[0] + 1, 1))]]  
+    
+    aldf = aldf.apply(lambda col:pd.to_numeric(col, errors='coerce'))                                                ##fix datatype:object bug; convert to float64
     
     return aldf    

@@ -8,9 +8,9 @@ DBDIpy is an open-source Python library for the curation and interpretation of d
 
 # Introduction
 
-Mass spectrometric data from direct injection analysis is hard to interprete as missing chromatographic separation complicates identification of fragments and adducts generated during the ionization process.
+Mass spectrometric data from direct injection analysis is hard to interpret as missing chromatographic separation complicates identification of fragments and adducts generated during the ionization process.
 
-Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from dielectric barrier dischardge ionization (DBDI). DBDI is a relatively young technology which is rapidly gaining popularity in applications as breath analysis, process controll or food research. 
+Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from dielectric barrier discharge ionization (DBDI). DBDI is a relatively young technology which is rapidly gaining popularity in applications as breath analysis, process control or food research. 
 
 DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+O<sub>n</sub>+H]<sup>+</sup>). 
 Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
@@ -39,9 +39,9 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 
 Latest Changes (since 0.6.0)
 ------------
-- updated description.
+- updated descriptions.
 - improved help pages.
-- began writing tutorial.
+- finished tutorial.
 
 
 User guide
@@ -58,7 +58,7 @@ DBDIpy can be installed from PyPI
 with:
 
 ```python
-# we recomend installing DBDIpy in a new virtual environment
+# we recommend installing DBDIpy in a new virtual environment
 conda create --name DBDIpy python=3.9
 conda activate DBDIpy
 python3 -m pip install DBDIpy
@@ -74,7 +74,7 @@ Manual installation of the dependency as described on the libraries [official si
 
 The following tutorial showcases an ordinary data analysis workflow by going through all functions of DBDIpy from loading data until visualization of correlation results. Therefore, we supplied a demo dataset which is publicly available [here](https://doi.org/10.5281/zenodo.7221089).
 
-The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consits of 500 randomly selected features. 
+The demo data is from an experiments where wheat bread was roasted for 20 min and monitored by DBDI coupled to FT-ICR-MS. It consists of 500 randomly selected features. 
 
 ![bitmap](https://user-images.githubusercontent.com/81673643/198022057-8b5da4b9-f6bd-43b7-9b6c-32fd119f93a7.png)
 <p align = "center">
@@ -110,14 +110,14 @@ If a signal was not detected in a scan, the according field will be set to an in
 
 Remember to set the ``ppm_window`` parameter according to the resolution of you mass spectrometric system. 
 
-We now can inspect the aligned data, eg. by running: 
+We now can inspect the aligned data, e.g. by running: 
 
 ```python
 specs_aligned.describe()
 specs_aligned.info()
 ```
 
-Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there are missing values in the data. These cannot be handled by successive DBDIpy functions and most machine learning algorithms so we need to impute them.
+Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there are missing values in the data. These cannot be handled by successive DBDIpy functions and most machine learning algorithms, so we need to impute them.
 
 ### 2. Imputation of missing values
 
@@ -149,7 +149,7 @@ Out[]: False
 ### 3. Detection of adducts and in-source fragments
 
 Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces to identify in-source adducts or in-source fragments generated during the DBD ionization process. The identification is performed in a two-step procedure: 
-- First, calculation of pointwise intensity correlation identifies featur groups with matching temporal intensity profiles through the experiment.
+- First, calculation of pointwise intensity correlation identifies feature groups with matching temporal intensity profiles through the experiment.
 - Second, (exact) mass differences are used to refine the nature of potential candidates. 
 
 By default, ``identify_adducts()`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+O<sub>1</sub>+H]<sup>+</sup> and [M+O<sub>2</sub>+H]<sup>+</sup>. 
@@ -201,9 +201,9 @@ Out[24]:
                                   ...
 ````
 The ``base_mz`` and ``base_index`` column give us the index of the features which correlates with a correlation partner specified in ``match_mz`` and ``match_index``.
-The mass difference between both is given for validational purpose and the correlation coefficient between both features is listed. 
+The mass difference between both is given for validation purpose and the correlation coefficient between both features is listed. 
 
-Now we can for example search for oxygenation series of a single analyte:
+Now we can for example search series of Oxygen adducts of a single analyte:
 
 ```python
 ##search for oxygenation series
@@ -242,14 +242,14 @@ Fig.2 - XIC plots for features 55, 66, 83 and 99 which have highly correlated in
 </p>
 
 We see that the XIC traces show a similar intensity profile through the experiment. The plot further tells us the correlation coefficients of the identified adducts.
-From the metadata we can see that the detected mass signals are idependently annotated as C<sub>15</sub>H<sub>17</sub>O<sub>2-5</sub>N which tells us that we most probaly found an Oxgen-adduct series. 
+From the metadata we can see that the detected mass signals were previously annotated as C<sub>15</sub>H<sub>17</sub>O<sub>2-5</sub>N which tells us that we most probably found an Oxgen-adduct series. 
 
-If MS2 data was recorded during the experiemnt we now can go further an compare frament spectra to reassure the identification. 
+If MS2 data was recorded during the experiment we now can go on further and compare fragment spectra to reassure the identifications. You might find [ms2deepscore](https://github.com/matchms/ms2deepscore) to be a usefull library to do so in an automated way. 
 
 ### 5. Exporting tabular MS data to match.Spectra objects
 
 If you want to export your (imputed) tabular data to ``matchms.Spectra`` objects, you can do so by calling the ``export_to_spectra()`` function. We just need to re-add a column containing *m/z* values of the features.
-This gives you acces to the matchms suite and enables you to safe your mass spectrometric data to open file formats.
+This gives you access to the matchms suite and enables you to safe your mass spectrometric data to open file formats.
 Hint: you can manually add some metadata after construction of the list of spectra.  
 
 ```python

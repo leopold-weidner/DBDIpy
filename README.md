@@ -101,7 +101,7 @@ demo_mgf = os.path.join(demo_path, "example_dataset.mgf")
 spectrums = list(load_from_mgf(demo_mgf))
 
 ##align the listed Spectra
-specs_aligned = dbdi.align_spectra(df = spectrums, ppm_window = 2) 
+specs_aligned = dbdi.align_spectra(spec = spectrums, ppm_window = 2) 
 ```
 We first imported the demo MS1 data into a list of ``matchms.Spectra`` objects. At this place you can run your personal ``matchms`` preprocessing pipelines or manually apply filters like noise reduction.
 By aplication of ``align_spectra()``, we transformed the list of spectra objects to a two-dimensional ``pandas.DataFrame``. Now you have a column for each mass spectrometric scan and features are aligned to rows. The first column shows the mean *m/z* of a feature.

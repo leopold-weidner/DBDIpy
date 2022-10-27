@@ -21,7 +21,7 @@ These putative identifications can than further be validated by the user, eg. ba
 DBDIpy further comes along with functions optimized for preprocessing of experimental data and visualization of identified adducts. The library is integrated into the matchms ecosystem to assimilate DBDIpy's functionalities into existing workflows.
 
 For details, we invite you to read the [tutorial](#tutorial) or to try out the functions with our [demonstrational dataset](https://doi.org/10.5281/zenodo.7221089) or your own data!
-![master](https://img.shields.io/github/last-commit/badges/shields/master)
+![last commit](https://img.shields.io/github/last-commit/leopold-weidner/DBDIpy?style=plastic)
 
 |                     | Badges                                                                             |
 |:-------------       |:-----------------------------------------------------------------------------------|

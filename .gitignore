@@ -1,24 +1,12 @@
-*.py[cod]
 *.egg-info
 *.eggs
-.ipynb_checkpoints
-
 build
+/_build
 dist
 .cache
 __pycache__
-
-
-# Mac
-.DS_Store
-config.py
-output/
-/data/
-models_trained/
-computed_results/
-notebooks/.ipynb_checkpoints/
 __pycache__/
-
-
-# conda build directory
-/_build
+.pytest_cache
+.spyproject
+temp-plot.html
+/DBDIpy/tests/testLW.py

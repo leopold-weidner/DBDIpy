@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Weidner"
+  given-names: "Leopold"
+  orcid: "https://orcid.org/0000-0002-6801-3647"
+title: "DBDIpy - A Python library for the inspection, curation and interpretation of DBDI-MS data."
+version: 0.8.4
+doi: 10.5281/zenodo.7221089
+date-released: 2022-10-27
+url: "https://github.com/leopold-weidner/DBDIpy"

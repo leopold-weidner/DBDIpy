@@ -164,7 +164,7 @@ adduct_rule = pd.DataFrame({'deltamz': [47.984744],'motive': ["O3"]})
 
 ##identify in-source fragments and adducts
 search_res = dbdi.identify_adducts(df = specs_imputed, masses = feature_mz, custom_adducts = adduct_rule,
-                                   method = "spearman", threshold = 0.9, mass_error = 2)
+                                   method = "pearson", threshold = 0.9, mass_error = 2)
 ```
 
 The function will return a dictionary holding one DataFrame for each adduct type that was defined. A typical output looks like the following:

@@ -117,7 +117,9 @@ specs_aligned.describe()
 specs_aligned.info()
 ```
 
-Likewise, ``specs_aligned.isnull().values.any()`` will give us an idea if there are missing values in the data. These cannot be handled by successive DBDIpy functions and most machine learning algorithms, so we need to impute them.
+Several metabolomics data processing steps can be applied here if not already performed in ``matchms``. These might include application of noise-cutoffs, feature selection based on missing values, normalization or many others.
+
+``specs_aligned.isnull().values.any()`` will give us an idea if there are missing values in the data. These cannot be handled by successive DBDIpy functions and most machine learning algorithms, so we need to impute them.
 
 ### 2. Imputation of missing values
 

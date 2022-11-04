@@ -19,9 +19,10 @@ def impute_intensities(df, method = "linear"):
     
     method : str
             Intepolation method to be used; default is "linear". 
-            Supported imputation methods are all  methods from 
-            pandas.DataFrame.interpolate() and
-            scipy.interpolate.interp1d().
+            Supported imputation methods are:
+                linear", "index", "pad", "nearest", "slinear", 
+                "quadratic", "cubic", "barycentric", "zero",
+                "krogh", "from_derivatives"
     
     Returns
     -------
@@ -29,7 +30,8 @@ def impute_intensities(df, method = "linear"):
     
     See Also
     --------
-    align_spectra() : For preparation of the input data.
+    DBDIpy.align_spectra() : For preparation of the input data.
+    pandas.interpolate()
     
     
     """
@@ -44,14 +46,14 @@ def impute_intensities(df, method = "linear"):
     if not isinstance(df, pd.DataFrame):
         raise TypeError('Argument for df should be of instance pandas.DataFrame.')
         
-    if method not in ("linear", "time", "index", "pad", "nearest", "zero", "slinear", 
-                      "quadratic", "cubic", "spline", "barycentric", "polynomial",
+    if method not in ("linear", "index", "pad", "nearest", "slinear", 
+                      "quadratic", "cubic", "barycentric", "zero",
                       "krogh", "from_derivatives"):
         raise ValueError("Invalid imputation method.")
         
     if 'mean' in df.columns:
         warnings.warn("Possible bad composition of input. Check if DataFrames only is composed if XIC")
-       
+        
     ##define function for addition of a baseline 
     def baselinefill():
         s_min = v.min()
@@ -60,12 +62,13 @@ def impute_intensities(df, method = "linear"):
         return round(random.uniform(fill_min, fill_max),2)
     
     ##fill the DataFrame row by row
-    for i, v in tqdm(df.iterrows(), desc='progress'):                                    
+    for i, v in tqdm(df.iterrows(), desc='progress'):                  
         ##part 1: filling NaN within data region
         vnotNA = v.notna()                                           
         vnotNA[::1].idxmax()                                         
         vnotNA[::-1].idxmax()                                      
-        datareg = v[vnotNA[::1].idxmax():vnotNA[::-1].idxmax()]       
+        datareg = v[vnotNA[::1].idxmax():vnotNA[::-1].idxmax()]   
+        datareg = datareg.reset_index(drop = True)
         datareg = datareg.interpolate(method = method)                              
         v[vnotNA[::1].idxmax():vnotNA[::-1].idxmax()] = datareg     
         ##part : adding a baseline

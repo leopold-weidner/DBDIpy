@@ -235,7 +235,7 @@ dbdi.plot_adducts(IDs = [55,66,83,99], df = specs_imputed, metadata = annotation
 
 
 <p align="center">
-  <img width="450" height="288" src="https://user-images.githubusercontent.com/81673643/200285085-68e27d8e-9b86-4afe-8e37-626baa1d4a45.png">
+  <img width="450" height="288" src="https://user-images.githubusercontent.com/81673643/200293545-6b58e887-09d1-4326-8d3b-bc52ea93231e.png">
 </p>
 <p align = "center">
 Fig.2 - XIC plots for features 55, 66, 83 and 99 which have highly correlated intensity profile through the baking experiment.

@@ -213,7 +213,7 @@ three_adducts
 Out[33]: array([55, 99], dtype=int64)
 ```
 
-This tells us that features 55 and 99 both putatively have [M+O<sub>1-3</sub>+H]<sup>+</sup> adduct ions with correlations of  R<sup>2</sup> > 0.9 in our dataset.
+This tells us that features 55 and 99 both putatively have [M+O<sub>1-3</sub>+H]<sup>+</sup> adduct ions with correlations of  r > 0.9 in our dataset.
 Let's visualize this finding!
 
 

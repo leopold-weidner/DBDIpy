@@ -64,6 +64,9 @@ def identify_adducts(df, masses, custom_adducts = None, method = "spearman", thr
     if masses.size != df.shape[0]:
         raise ValueError("Incompatible dimensions of mass list and number of XIC.")
         
+    if df.shape[1] < 10:
+        raise Warning("Low number of scans! Consider providing more scans to improve reliability of correlation results.")
+        
 #%%correlation matrix calculation            
     cormat = df.T.corr(method = method)
     

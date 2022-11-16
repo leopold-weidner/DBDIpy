@@ -1,4 +1,4 @@
-# DBDIpy (Version 0.9.1)
+# DBDIpy (Version 1.0.0)
 DBDIpy is an open-source Python library for the curation and interpretation of dielectric barrier discharge ionisation mass spectrometric datasets.
 
 # tl;dr
@@ -11,7 +11,7 @@ Mass spectrometric data from direct injection analysis is hard to interpret as m
 
 Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from dielectric barrier discharge ionization (DBDI). DBDI is a relatively young technology which is rapidly gaining popularity in applications as breath analysis, process control or food research. 
 
-DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+nO+H]<sup>+</sup>). 
+DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+O<sub>n</sub>+H]<sup>+</sup>). 
 Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
 - calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
 - (exact) mass differences are used to refine the nature of potential candidates. 
@@ -40,6 +40,7 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 Latest Changes (since 0.8.4)
 ------------
 - fixed bugs from found by beta testers.
+- improved documentation & tutorial.
 
 
 User guide
@@ -273,5 +274,5 @@ leopold.weidner@tum.de
 
 Acknowledgements
 ============
-
+We thank Erwin Kupczyk and Nicolas Schmidt for testing the software and their feedback during development.
 

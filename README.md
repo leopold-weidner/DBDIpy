@@ -42,6 +42,10 @@ Latest Changes (since 0.8.4)
 - fixed bugs from found by beta testers.
 - improved documentation & tutorial.
 
+Currently under development
+------------
+- Further plotting modules for output visualization and data analysis
+
 
 User guide
 ============

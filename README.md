@@ -1,9 +1,5 @@
-# DBDIpy (Version 1.0.0)
+# DBDIpy (Version 1.0.1)
 DBDIpy is an open-source Python library for the curation and interpretation of dielectric barrier discharge ionisation mass spectrometric datasets.
-
-# tl;dr
-1. [Installation](#installation)
-2. [User Tutorial](#tutorial)
 
 # Introduction
 
@@ -37,14 +33,15 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 | `Further Reads`     | [![Researchgate](https://img.shields.io/badge/Research_Gate-00CCBB.svg?&style=for-the-badge&logo=ResearchGate&logoColor=white)](https://www.researchgate.net/profile/Leopold-Weidner)|
 
 
-Latest Changes (since 0.8.4)
+Latest Changes (since 1.0.0)
 ------------
-- fixed bugs from found by beta testers.
-- improved documentation & tutorial.
+- improving runtime.
+- minor bug fix.
 
 Currently under development
 ------------
-- Further plotting modules for output visualization and data analysis
+- runtime optimization.
+- further plotting modules for output visualization and data analysis.
 
 
 User guide

@@ -23,6 +23,7 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 |:-------------       |:-----------------------------------------------------------------------------------|
 | `License`           | [![PyPi license](https://badgen.net/pypi/license/pip/)]([https://pypi.com/project/pip/](https://opensource.org/licenses/MIT/))|
 | `Version`           | [![PyPi license](https://img.shields.io/pypi/v/DBDIpy)](https://pypi.org/project/DBDIpy/)|
+| `Downloads`         | [![Downloads](https://static.pepy.tech/badge/dbdipy/week)](https://pepy.tech/project/dbdipy)|
 | `Status`            | [![test](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/leopold-weidner/DBDIpy/graphs/commit-activity)|
 | `Updated`           | ![latest commit](https://img.shields.io/github/last-commit/leopold-weidner/DBDIpy)|
 | `Language`          | [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)|
@@ -31,6 +32,8 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 | `Documentation`     | [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/leopold-weidner/DBDIpy)|
 | `Supporting Data`   | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7221089.svg)](https://doi.org/10.5281/zenodo.7221089)|
 | `Further Reads`     | [![Researchgate](https://img.shields.io/badge/Research_Gate-00CCBB.svg?&style=for-the-badge&logo=ResearchGate&logoColor=white)](https://www.researchgate.net/profile/Leopold-Weidner)|
+
+
 
 
 Latest Changes (since 1.0.0)

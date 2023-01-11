@@ -1,47 +1,34 @@
-import numpy as np
-import pandas as pd
-
-def align_features(features, num_scans, accuracy):
-  sorted_features = sorted(features, key=lambda x: x[1])
-  aligned_features = {}
-  
-
-  for i, feature in enumerate(sorted_features):
-    mass_to_charge, intensities = feature
+def align_spectra_b(spec, ppm_window = 2):
     
-    if i == 0:
-      aligned_features[mass_to_charge] = intensities
-    else:
-      prev_mass_to_charge, prev_intensities = list(aligned_features.items())[-1]
-      
-      diff = mass_to_charge - prev_mass_to_charge
-     
-      if abs(diff) <= accuracy:
-        aligned_features[mass_to_charge] = intensities
-      else:
-       
-        aligned_mass_to_charge = prev_mass_to_charge + np.sign(diff) * accuracy
-        aligned_features[aligned_mass_to_charge] = intensities
-  
-
-  df = pd.DataFrame.from_dict(aligned_features, orient='index', columns=range(num_scans))
-  
-  df.index.name = 'm/z'
-  
-  df = df.fillna(value=np.nan)
-  
-  df['mean m/z'] = df.mean(axis=1)
-  
-  df = df[['mean m/z'] + [col for col in df.columns if col != 'mean m/z']]
-  
-  return df
-
-
-import time
-
-starttime = time.process_time()
-testXX = dbdi.align_spectra(spectrums)
-elapsed = time.process_time() - starttime
-print(elapsed)   ##7.24 sec
-
-
+    """beta version of DBDIpy.align_spectra() with optimized runtime.
+    Tests pending.
+    
+    """
+    
+    import matchms
+    import numpy as np
+    import pandas as pd
+    from tqdm import tqdm
+    
+    if not isinstance(spec[0], matchms.Spectrum):
+        raise TypeError("Argument for spec should be a list of matchms.Spectrum.")
+        
+    n_peaks = sum([len(s.peaks.mz) for s in spec])
+    
+    aldf = pd.DataFrame({"mean": np.zeros(n_peaks), "scan1": np.zeros(n_peaks)})
+    
+    massdf = pd.DataFrame({"scan1": np.zeros(n_peaks)})
+    
+    peak_count = 0
+    
+    for s in tqdm(range(1, len(spec)), desc = 'progress'):
+        scan_s = spec[s]
+        mz_s, scan_s_int = scan_s.peaks.mz, scan_s.peaks.intensities
+        aldf_mz_mask = (aldf["mean"][peak_count:peak_count+len(mz_s)] >= mz_s[:, np.newaxis] - ppm_window * 1e-6) & (aldf["mean"][peak_count:peak_count+len(mz_s)] <= mz_s[:, np.newaxis] + ppm_window * 1e-6)
+        idx = np.argmin(np.abs(aldf["mean"][peak_count:peak_count+len(mz_s)][aldf_mz_mask] - mz_s[:, np.newaxis][aldf_mz_mask]), axis=1)
+        idx += peak_count
+        aldf.iloc[idx, s+1] = scan_s_int
+        massdf.iloc[idx, s+1] = mz_s
+        peak_count += len(mz_s)
+    
+    return aldf, massdf

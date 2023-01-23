@@ -278,5 +278,7 @@ leopold.weidner@tum.de
 
 Acknowledgements
 ============
-We thank Erwin Kupczyk and Nicolas Schmidt for testing the software and their feedback during development.
+We thank Erwin Kupczyk and [Nicolas Schmidt](https://github.com/nibosco) for testing the software and their feedback during development.
+
+
 

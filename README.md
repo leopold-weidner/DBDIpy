@@ -1,18 +1,18 @@
-# DBDIpy (Version 1.0.1)
+# DBDIpy (Version 1.1.0)
 DBDIpy is an open-source Python library for the curation and interpretation of dielectric barrier discharge ionisation mass spectrometric datasets.
 
 # Introduction
 
 Mass spectrometric data from direct injection analysis is hard to interpret as missing chromatographic separation complicates identification of fragments and adducts generated during the ionization process.
 
-Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from dielectric barrier discharge ionization (DBDI). DBDI is a relatively young technology which is rapidly gaining popularity in applications as breath analysis, process control or food research. 
+Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from plasma ionization techniques. These are rapidly gaining popularity in applications as breath analysis, process control or food research. 
 
 DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+O<sub>n</sub>+H]<sup>+</sup>). 
 Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
 - calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
 - (exact) mass differences are used to refine the nature of potential candidates. 
 
-These putative identifications can than further be validated by the user, eg. based on tandem MS fragment data.               
+These putative identifications can than further be validated by the user, eg. based on tandem MS fragmentation or IMS data.              
 
 DBDIpy further comes along with functions optimized for preprocessing of experimental data and visualization of identified adducts. The library is integrated into the matchms ecosystem to assimilate DBDIpy's functionalities into existing workflows.
 
@@ -40,6 +40,7 @@ Latest Changes (since 1.0.0)
 ------------
 - improving runtime.
 - minor bug fix.
+- updated descriptions in accordance with publication.
 
 Currently under development
 ------------
@@ -152,7 +153,7 @@ Out[]: False
 
 ### 3. Detection of adducts and in-source fragments
 
-Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces to identify in-source adducts or in-source fragments generated during the DBD ionization process. The identification is performed in a two-step procedure: 
+Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces to identify in-source adducts or in-source fragments generated during the plasma ionization process. The identification is performed in a two-step procedure: 
 - First, calculation of pointwise intensity correlation identifies feature groups with matching temporal intensity profiles through the experiment.
 - Second, (exact) mass differences are used to refine the nature of potential candidates. 
 

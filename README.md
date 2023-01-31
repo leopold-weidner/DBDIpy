@@ -7,7 +7,7 @@ Mass spectrometric data from direct injection analysis is hard to interpret as m
 
 Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from plasma ionization techniques. These are rapidly gaining popularity in applications as breath analysis, process control or food research. 
 
-DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+O<sub>n</sub>+H]<sup>+</sup>). 
+DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+nO+H]<sup>+</sup>). 
 Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
 - calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
 - (exact) mass differences are used to refine the nature of potential candidates. 
@@ -157,8 +157,8 @@ Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces t
 - First, calculation of pointwise intensity correlation identifies feature groups with matching temporal intensity profiles through the experiment.
 - Second, (exact) mass differences are used to refine the nature of potential candidates. 
 
-By default, ``identify_adducts()`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+O<sub>1</sub>+H]<sup>+</sup> and [M+O<sub>2</sub>+H]<sup>+</sup>. 
-For demonstrational purposes we also want to search for [M+O<sub>3</sub>+H]<sup>+</sup> in this example.
+By default, ``identify_adducts()`` searches for [M-H<sub>2</sub>O+H]<sup>+</sup>, [M+1O+H]<sup>+</sup> and [M+2O+H]<sup>+</sup>. 
+For demonstrational purposes we also want to search for [M+3O+H]<sup>+</sup> in this example.
 Note that ``identify_adducts()`` has a variety of other parameters which allow high user customization. See the help file of the functions for details.
 
 ```python
@@ -219,7 +219,7 @@ three_adducts
 Out[33]: array([55, 99], dtype=int64)
 ```
 
-This tells us that features 55 and 99 both putatively have [M+O<sub>1-3</sub>+H]<sup>+</sup> adduct ions with correlations of  r > 0.9 in our dataset.
+This tells us that features 55 and 99 both putatively have [M+1-3O+H]<sup>+</sup> adduct ions with correlations of  r > 0.9 in our dataset.
 Let's visualize this finding!
 
 

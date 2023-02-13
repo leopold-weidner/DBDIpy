@@ -31,8 +31,7 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 | `Operating Systems` | [![macOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg) [![Windows](https://svgshare.com/i/ZhY.svg)](https://svgshare.com/i/ZhY.svg)|
 | `Documentation`     | [![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](https://github.com/leopold-weidner/DBDIpy)|
 | `Supporting Data`   | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7221089.svg)](https://doi.org/10.5281/zenodo.7221089)|
-| `Further Reads`     | [![Researchgate](https://img.shields.io/badge/Research_Gate-00CCBB.svg?&style=for-the-badge&logo=ResearchGate&logoColor=white)](https://www.researchgate.net/profile/Leopold-Weidner)|
-
+| `Articel (open access)`     | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7221089.svg)]([https://doi.org/10.5281/zenodo.7221089](https://doi.org/10.1093/bioinformatics/btad088))|
 
 
 

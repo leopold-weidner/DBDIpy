@@ -2,13 +2,13 @@ from setuptools import setup
 
 setup(
    name = 'DBDIpy',
-   version = '1.0.0',
+   version = '1.2.0',
    author = 'Leopold Weidner',
    author_email = 'leopold.weidner@tum.de',
    packages = ['DBDIpy', 'DBDIpy.tests'],
    url = 'https://github.com/leopold-weidner/DBDIpy',
    license = 'docs/license.txt',
-   description =    'A python package for the curation and interpretation of dielectric barrier discharge ionisation mass spectrometric datasets.',
+   description =    'A python package for the curation and interpretation of datasets from plasma ionisation mass spectrometric.',
    long_description_content_type='text/markdown',
    long_description = open('README.md').read(),
    keywords=['python', 'bioinformatics', 'mass spectrometry', 'metabolomics', 'foodomics'],

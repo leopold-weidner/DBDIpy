@@ -1,6 +1,3 @@
-.. image:: docs/Bild 11.04.23 um 10.56.jpg
-   :target: docs/Bild 11.04.23 um 10.56.jpg
-   :align: left
 
  
 # DBDIpy (Version 1.2.0)

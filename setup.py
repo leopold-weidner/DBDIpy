@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
    name = 'DBDIpy',
-   version = '1.2.0',
+   version = '1.2.1',
    author = 'Leopold Weidner',
    author_email = 'leopold.weidner@tum.de',
    packages = ['DBDIpy', 'DBDIpy.tests'],

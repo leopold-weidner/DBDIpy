@@ -3,7 +3,7 @@ def align_spectra(spec, ppm_window = 2):
     """Feature building from a list of spectra.
     Aligns detected peaks in a list of matchms.Spectra objects into two-dimensional tabular data.
     Utilizes data loaded by matchms.importing module and connects to matchMS (pre-)processing workflows.
-    
+    #test
     Parameters
     ----------    
     spec : list of matchms.Spectra

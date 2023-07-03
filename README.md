@@ -8,7 +8,7 @@ Mass spectrometric data from direct injection analysis is hard to interpret as m
 Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from plasma ionization techniques. These are rapidly gaining popularity in applications as breath analysis, process control or food research. 
 
 DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+nO+H]<sup>+</sup>). 
-Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a three-step procedure (since V > 2.*): 
+Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a three-step procedure (from V > 2.* on, in preparation): 
 - calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
 - (exact) mass differences are used to refine the nature of potential candidates. 
 - calculation of MS2 spectral similarity score by ...

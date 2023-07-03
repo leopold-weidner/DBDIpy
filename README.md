@@ -1,4 +1,4 @@
-# DBDIpy (Version 1.2.1)
+# DBDIpy (Version 1.2.2)
 DBDIpy is an open-source Python library for the curation and interpretation of dielectric barrier discharge ionisation mass spectrometric datasets.
 
 # Introduction
@@ -8,11 +8,11 @@ Mass spectrometric data from direct injection analysis is hard to interpret as m
 Here we present an *in-silico* approach to putatively identify multiple ion species arising from one analyte compound specially tailored for time-resolved datasets from plasma ionization techniques. These are rapidly gaining popularity in applications as breath analysis, process control or food research. 
 
 DBDIpy's core functionality relys on putative identification of in-source fragments (eg. [M-H<sub>2</sub>O+H]<sup>+</sup>) and in-source generated adducts (eg. [M+nO+H]<sup>+</sup>). 
-Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a two-step procedure: 
+Custom adduct species can be defined by the user and passed to this open-search algorithm. The identification is performed in a three-step procedure (since V > 2.*): 
 - calculation of pointwise correlation identifies features with matching temporal intensity profiles through the experiment.
 - (exact) mass differences are used to refine the nature of potential candidates. 
-
-These putative identifications can than further be validated by the user, eg. based on tandem MS fragmentation or IMS data.              
+- calculation of MS2 spectral similarity score by ...
+       
 
 DBDIpy further comes along with functions optimized for preprocessing of experimental data and visualization of identified adducts. The library is integrated into the matchms ecosystem to assimilate DBDIpy's functionalities into existing workflows.
 
@@ -34,14 +34,17 @@ For details, we invite you to read the [tutorial](#tutorial) or to try out the f
 | `Articel (open access)`     | [![DOI](https://img.shields.io/badge/DOI-10.1093%2Fbioinformatics%2Fbtad088-blue)](https://doi.org/10.1093/bioinformatics/btad088)|
 
 
-Latest Changes (since 1.1.0)
+Latest Changes (since V 1.2.1)
 ------------
-- new functionality to propose potential adducts / in-source fragments.
-- minor fixes.
+minor fixes
+
 
 Currently under development:
 ------------
-- implementation of MS2 spectral similarity matching to improve adduct detection.
+- major implementation for V2: modification of the former two-step search algorithm towards refinement by MS2 spectral similarity scoring.
+- addition of utility functions, e.g. calculation of consensus spectra.
+- improved spectral alignment.
+- introduction of an open search option to propose potential adducts / in-source fragments.
 - runtime optimization.
 
 
@@ -149,7 +152,7 @@ Out[]: False
 ```
 
 
-### 3. Detection of adducts and in-source fragments
+### 3. Detection of adducts and in-source fragments: MS1 data only
 
 Based on the ``specs_imputed``, we compute pointwise correlation of XIC traces to identify in-source adducts or in-source fragments generated during the plasma ionization process. The identification is performed in a two-step procedure: 
 - First, calculation of pointwise intensity correlation identifies feature groups with matching temporal intensity profiles through the experiment.
@@ -221,7 +224,11 @@ This tells us that features 55 and 99 both putatively have [M+1-3O+H]<sup>+</sup
 Let's visualize this finding!
 
 
-### 4. Visualization of correlation results
+### 4. Detection of adducts and in-source fragments: refined scoring by MS2 similarity matching
+...
+
+
+### 5. Visualization of correlation results
 
 Now that we putatively identified some related ions of a single analyte, we want to check their temporal response during the baking experiment.
 Therefore, we can use the ``plot_adducts()`` function to conveniently draw XICs.
@@ -250,7 +257,7 @@ From the metadata we can see that the detected mass signals were previously anno
 
 If MS2 data was recorded during the experiment we now can go on further and compare fragment spectra to reassure the identifications. You might find [ms2deepscore](https://github.com/matchms/ms2deepscore) to be a usefull library to do so in an automated way. 
 
-### 5. Exporting tabular MS data to match.Spectra objects
+### 6. Exporting tabular MS data to match.Spectra objects
 
 If you want to export your (imputed) tabular data to ``matchms.Spectra`` objects, you can do so by calling the ``export_to_spectra()`` function. We just need to re-add a column containing *m/z* values of the features.
 This gives you access to the matchms suite and enables you to safe your mass spectrometric data to open file formats.
@@ -278,5 +285,3 @@ leopold.weidner@tum.de
 Acknowledgements
 ============
 We thank Erwin Kupczyk and [Nicolas Schmidt](https://github.com/nibosco) for testing the software and their feedback during development.
-
-
